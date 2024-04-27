@@ -1,0 +1,109 @@
+.navigation{
+    color: #fff;
+    background: rgb(70 118 169 / 97%);
+}
+.main{
+    position: sticky;
+    width: 100%;
+    padding-top: 80px;
+    box-sizing: border-box;
+}
+.hs-c{
+    width: 80%;
+    background-color: #e3e3e3;
+    padding: 50px 10%;
+    color: white;
+    perspective: 1186px;
+    position: relative;
+    height: 770px;
+}
+.wn{
+    font-size: 20pt;
+    font-weight: bold;
+    transform: translateY(10vh);
+    opacity: 0;
+    transition: var(--fadeIn-instant);
+    letter-spacing: 5px;
+    color: #ffffff;
+    text-shadow: 2px 2px black;
+}
+.hs-c p{
+    font-size: 14pt;
+    display: block;
+    margin-top: 50px;
+    margin-left: 15%;
+    font-family: cursive;
+    color: #e1e1e1;
+    transform: translateY(10vh);
+    opacity: 0;
+    transition: all 1.15s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+    font-style: italic;
+}
+.hp{
+    width: 60%;
+    margin-left: 15%;
+    display: block;
+    margin-top: 10px;
+    box-shadow: 0 0 0px 10px #552e0e, 0 0 10px 11px black;
+    transition: all 1s ease 0s;
+    opacity: 0;
+    transform: rotateX(90deg);
+    filter: brightness(.9);
+}
+.hp-p-h{
+    display: flex;
+    justify-content: center;
+    perspective: 1186px;
+    overflow: unset;
+    margin-top: 100px;
+    padding-left: 20%;
+}
+.hp-p:hover{
+    transform: translateX(-200px) rotateX(0deg);
+}
+.hp-p{
+    display: block;
+    width: 30%;
+    box-shadow: 0 0 0px 10px #552e0e, 0 0 10px 11px black;
+    transition: all .5s cubic-bezier(0.51, 0.68, 0.25, 0.94);
+    opacity: 1;
+    transform: rotateY(40deg);
+    margin-left: -20%;
+}
+.hs-c:nth-child(1){
+    background: radial-gradient(white, #003371ad), url(../images/bk/hornor-bk4.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.hs-c:nth-child(2){
+    background: radial-gradient(#fff, #003371ad), url(../images/bk/hornor-bk2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.hs-c:nth-child(3){
+    background: radial-gradient(#fff, #003371ad), url(../images/bk/hornor-bk3.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.hs-c:nth-child(4){
+    background: radial-gradient(#fff, #003371ad), url(../images/bk/hornor-bk1.jpg);
+    background-size: cover;
+}
+.hs-c:nth-child(5){
+    background: radial-gradient(#fff, #003371ad), url(../images/bk/hornor-bk5.jpg);
+    background-size: cover;
+    height: 850px;
+}
+.hs-c:nth-child(5) img{
+    width: 30%;
+    margin-left: 35%;
+}
+.hs-c:nth-child(6){
+    background: radial-gradient(#fff, #003371ad), url(../images/bk/hornor-bk5.jpg);
+    background-size: cover;
+    height: 850px;
+}
+.footer{
+    position: relative;
+    z-index: 1;
+}

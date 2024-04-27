@@ -1,0 +1,64 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    padding-top: var(--banner-height);
+    box-sizing: border-box;
+}
+.container-sub{
+    padding-left: 15%;
+    padding-right: 20%;
+}
+.container-sub-addr{
+    padding-left: 15%;
+}
+.container::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: inherit;
+    height: inherit;
+    filter: blur(5px);
+    scale: 1.05;
+    z-index: -1;
+}
+.t1{
+    font-size: 4em;
+    font-weight: 700;
+    padding: 30px;
+    padding-left: 27%;
+    letter-spacing: 8px;
+    color: #fff;
+}
+.t2{
+    padding: 20px 30px;
+    color: #fff;
+    font-size: 2em;
+    text-indent: 2em;
+    font-weight: 600;
+    width: 100%;
+    text-wrap: nowrap;
+    overflow: visible;
+    letter-spacing: 3px;
+}
+.t2-title{
+    font-size: 1.5em;
+    text-decoration: underline;
+    text-underline-offset: 15px;
+    text-indent: unset;
+}
+.illustration{
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: brightness(.4);
+}
+.illustration img{
+    width: 100%;
+    height: 100%;
+}

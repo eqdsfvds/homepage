@@ -1,0 +1,154 @@
+.poster{
+    width: 100vw;
+    height: 70vh;
+    position: relative;
+}
+.poster-desc{
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    z-index: 1;
+    overflow: unset;
+    padding: 50px;
+    backdrop-filter: brightness(0.5)  blur(2px);
+}
+.poster-desc-t{
+    text-decoration: underline;
+    text-underline-offset: 9px;
+    overflow: unset;
+    color: #e7e7e7;
+    font-size: 19pt;
+}
+.poster-desc-b{
+    max-width: 500px;
+    margin-top: 20px;
+    color: #dfdfdf;
+    line-height: 1.5;
+}
+.poster img{
+    width: 100%;
+    animation: poster_a 20s linear infinite alternate;
+}
+@keyframes poster_a{
+    from{
+        scale: 1;
+    }
+    to{
+        scale: 1.1;
+    }
+}
+.container{
+    position: relative;
+}
+.container::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url(../images/bk/cube.jpg);
+    background-attachment: fixed;
+    opacity: 0.1;
+}
+.p-title{
+    position: relative;
+    margin-top: 60px;
+    overflow: unset;
+    left: 10%;
+}
+.p-title span{
+    font-size: 30pt;
+    letter-spacing: 3px;
+    color: #383838;
+    position: relative;
+}
+.p-title span div{
+    height: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    background: #ffeb8a;
+    z-index: -1;
+    left: -1.5px;
+    border-radius: 3px;
+}
+.main{
+    width: 100%;
+    text-align: center;
+    padding: 50px 0;
+}
+.details{
+    width: 70%;
+    box-sizing: border-box;
+    margin: auto;
+}
+.main-row{
+    width: 100%;
+    display: flex;
+}
+.main-row:first-child .main-cell{
+    background: #52bdb4;
+    font-size: 16pt;
+    min-height: 33px;
+    white-space: unset;
+}
+.main-row .main-cell:first-child{
+    flex: 0.3;
+}
+.main-cell{
+    flex: 1;
+    display: flex;
+    background-color: #383838;
+    border: 1px solid #fff;
+    padding: 19px 25px;
+    color: white;
+    font-size: 15pt;
+}
+.dt{
+    padding: 0 5%;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 30px;
+}
+.dt-btn{
+    display: flex;
+    position: relative;
+    padding: 20px 40px;
+    width: 185px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14pt;
+    letter-spacing: 2px;
+    cursor: pointer;
+    background-size: 200% 100% !important;
+    background-position: right top !important;
+    background: linear-gradient(to right ,#bb1212 50%, #2d2d2d 50%);
+    transition: all .3s;
+}
+.dt-btn svg{
+    position: absolute;
+    right: 20px;
+}
+.dt-btn:hover{
+    background-position: left bottom !important;
+}
+.sep{
+    border-bottom: 1px solid #cfcfcf;
+    color: #8b8b8b;
+    padding-left: 5%;
+    padding-bottom: 10px;
+    margin: 30px 5%;
+    margin-top: 0;
+    letter-spacing: 3px;
+}
+.contact-tip{
+    font-style: italic;
+    margin-top: 5px;
+    color: #666;
+    font-size: 1pt;
+    text-align: right;
+    padding-right: 20%;
+}

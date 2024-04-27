@@ -1,0 +1,332 @@
+.navigation{
+    background: rgb(70 118 169 / 97%) !important;
+}
+img{
+    user-select: none;
+}
+.title{
+    letter-spacing: 5px;
+    font-weight: 600;
+    padding: 60px 27%;
+    background: url(../images/sales/banner.jpg);
+    transition: all .5s ease;
+    box-sizing: border-box;
+    height: 200px;
+}
+.title:hover{
+    background-position-y: -30px;
+}
+#title1{
+    margin-top: var(--banner-height);
+}
+.salesAmount{
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(to bottom, #fff, #437cb7e0);
+}
+.salesAmount-container{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    height: 750px;
+    align-items: center;
+    border-left: 5px solid black;
+    border-bottom: 5px solid black;
+    box-sizing: border-box;
+    width: fit-content;
+    padding: 0 10px 10px 0;
+    overflow: visible;
+}
+.salesAmount-container>span{
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.salesAmount-container svg{
+    position: absolute;
+    left: 50px;
+    top: 0;
+    opacity: 0;
+    animation: emerge 1s forwards linear;
+    animation-delay: .5s;
+}
+@keyframes emerge {
+    from{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes emerge2 {
+    from{
+        opacity: 0;
+        transform: translateY(150px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.salesAmount-container>span:nth-child(6){
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 1em;
+    font-style: italic;
+    overflow: visible;
+    color: #4f4f4f;
+    font-size: 1em;
+}
+.salesAmount-container>span:nth-child(7){
+    position: absolute;
+    right: -50px;
+    bottom: -13px;
+    font-size: 1em;
+    font-style: italic;
+    color: #212121;
+    overflow: visible;
+}
+.pillars{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    height: 750px;
+    overflow: visible;
+    padding: 0 30px;
+}
+.pillars div{
+    height: 0;
+    width: 100px;
+    background-color: #155f9e;
+    box-shadow: 3px 0px 5px black;
+}
+.year{
+    color: #000;
+    margin-top: 10px;
+    font-weight: bold;
+    position: absolute;
+    margin-bottom: -40px;
+}
+#p1,#p2,#p3,#p4,#p5{
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #a71700;
+    font-style: italic;
+    overflow: visible;
+    font-family: fantasy;
+}
+.pillars:nth-child(1) div{
+    animation: pillars1 .3s linear forwards .5s;
+}
+.pillars:nth-child(2) div{
+    animation: pillars2 .5s linear forwards .5s;
+}
+.pillars:nth-child(3) div{
+    animation: pillars3 .9s linear forwards .5s;
+}
+.pillars:nth-child(4) div{
+    animation: pillars4 1.2s linear forwards .5s;
+}
+.pillars:nth-child(5) div{
+    animation: pillars5 1.5s linear forwards .5s;
+}
+@keyframes pillars1 {
+    from{
+        height: 0;
+    }
+    to{
+        height: 150px;
+    }
+}
+@keyframes pillars2 {
+    from{
+        height: 0;
+    }
+    to{
+        height: 250px;
+    }
+}
+@keyframes pillars3 {
+    from{
+        height: 0;
+    }
+    to{
+        height: 350px;
+    }
+}
+@keyframes pillars4 {
+    from{
+        height: 0;
+    }
+    to{
+        height: 550px;
+    }
+}
+@keyframes pillars5 {
+    from{
+        height: 0;
+    }
+    to{
+        height: 750px;
+    }
+}
+.desc{
+    width: 40%;
+    height: 80%;
+    background: #1f3b7b;
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    opacity: 0;
+    animation: emerge2 1.5s forwards cubic-bezier(0.36, 0.8, 0.51, 1.01) .5s;
+}
+.desc h3{
+    font-size: 2em;
+    margin-bottom: 2em;
+    opacity: 0;
+    animation: emerge 1.5s forwards cubic-bezier(0.36, 0.8, 0.51, 1.01) .5s;
+}
+.desc p{
+    line-height: 1.5;
+    text-indent: 2em;
+    text-align: left;
+    color: #e7e7e7;
+    opacity: 0;
+    animation: emerge 1.5s forwards 1.2s cubic-bezier(0.36, 0.8, 0.51, 1.01);
+}
+.desc img{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    opacity: .2;
+}
+.cust-server, .sales-region{
+    padding: 5% 10%;
+    background: radial-gradient(white, #437cb7e0);
+}
+h2{
+    letter-spacing: 5px;
+    font-size: 3em;
+    color: #f5f5f5e0;
+    letter-spacing: 3px;
+    transform: translateX(-200px);
+    opacity: 0;
+    transition: all .45s cubic-bezier(0, -0.03, 0.4, 0.97);
+    overflow: visible;
+}
+.cust-server img, #earth{
+    width: 100%;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0, -0.03, 0.4, 0.97) .5s;
+}
+.sales-region{
+    position: relative;
+}
+#point-1, #point-2, #point-3, #point-4{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5f5f;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0, -0.03, 0.4, 0.97) 1s;
+}
+#point-1{
+    top: 45%;
+    right: 27%;
+}
+#point-2{
+    top: 50%;
+    right: 23%;
+}
+#point-3{
+    top: 35%;
+    left: 24%;
+}
+#point-4{
+    top: 35%;
+    left: 50%;
+}
+.sales-region h3{
+    line-height: 9;
+    text-align: center;
+    backdrop-filter: brightness(0.5);
+    color: white;
+    letter-spacing: 3px;
+    transition: opacity .5s ease;
+    user-select: none;
+}
+#na, #eu, #cn, #asia{
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 4px 4px 9px #4d4d4d;
+    background-size: 100% 100% !important;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .5s ease 1s;
+}
+#na{
+    top: 30%;
+    left: 12%;
+    background: url(../images/sales/na.jpg);
+}
+#eu{
+    top: 39%;
+    left: 45%;
+    background: url(../images/sales/eu.jpg);
+}
+#cn{
+    top: 28%;
+    right: 25%;
+    background: url(../images/sales/aisa-china.jpg);
+}
+#asia{
+    bottom: 32%;
+    right: 16%;
+    background: url(../images/sales/asia-others.jpeg);
+}
+.ratio{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 50px;
+}
+.ratio div{
+    padding: 10px 30px;
+    background: #395975;
+    color: white;
+    margin: 10px 0;
+    font-style: italic;
+    font-size: .5em;
+    opacity: 0;
+    transform: translateX(-50px);
+    user-select: none;
+}
+.ratio div:nth-child(1){
+    transition: all .5s ease 1s;
+}
+.ratio div:nth-child(2){
+    transition: all .5s ease 1.2s;
+}
+.ratio div:nth-child(3){
+    transition: all .5s ease 1.4s;
+}
+.ratio div:nth-child(4){
+    transition: all .5s ease 1.6s;
+}

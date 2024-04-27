@@ -1,0 +1,298 @@
+:root{
+    --popu-fadeIn: all .15s cubic-bezier(0.215, 0.61, 0.355, 1);
+    --fadeIn: all 2.15s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
+    --fadeIn-delay: all 2.15s cubic-bezier(0.215, 0.61, 0.355, 1) .7s;
+    --fadeIn-instant: all 1.15s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    --imgScale: img_s 5s linear infinite alternate;
+    --banner-height: 80px;
+}
+@font-face {
+    font-family: 'alimm';
+    src: url('../fonts/AlimamaFangYuanTiVF-Thin-2.ttf');
+}
+@keyframes img_s {
+    from{
+        scale: 1;
+    }
+    to{
+        scale: 1.1;
+    }
+}
+*{
+    padding: 0;
+    margin: 0;
+    /* user-select: none; */
+    cursor: default;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+.navi-ul-active{
+    background: #388ec1;
+    color: white !important;
+    font-weight: 500;
+}
+html{
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+*::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+}
+.banner{
+    position: fixed;
+    height: 80px;
+    width: 100vw;
+    z-index: 10;
+    transition: all .25s;
+}
+.navigation{
+    overflow: hidden;
+    height: 80px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    background: transparent;
+    transition: all .05s;
+    box-sizing: border-box;
+    color: rgb(243, 243, 243);
+    justify-content: space-evenly;
+}
+.navigation-show{
+    color: #fff;
+    background: rgb(70 118 169 / 97%);
+}
+.navigation-black{
+    animation: navigation-black .5s forwards ease;
+}
+@keyframes navigation-black {
+    0%{
+        color: rgb(243, 243, 243);
+        background: rgb(70 118 169 / 97%);
+        height: var(--banner-height);
+    }
+    50%{
+        color: #fff;
+        border-bottom: none;
+        background: rgba(33,33,33,0.97);
+        height: 0;
+    }
+    100%{
+        color: #fff;
+        border-bottom: none;
+        background: rgba(33,33,33,0.97);
+        height: var(--banner-height);
+    }
+}
+.navi-ul{
+    list-style: none;
+    display: flex;
+    padding-left: 5%;
+}
+.navi-ul li{
+    text-align: center;
+    font-size: 13pt;
+    line-height: 5;
+    padding: 0 60px;
+    transition: all .05s;
+    cursor: pointer;
+}
+.navi-ul li:hover{
+    background-color: #da8181;
+    color: white;
+}
+.navi-ul a{
+    text-decoration: none;
+    color: inherit;
+}
+.navi-ul a[href='social']{
+    line-height: 1.5;
+}
+.popu{
+    line-height: 1.5;
+    color: #000;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    z-index: 9;
+    cursor: default;
+    transition: all 0.2s;
+    height: 0px;
+    top: 80px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.popu-content{
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    display: flex;
+}
+.popu-content-left{
+    background-color: #e5e5e5;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 100px;
+    box-sizing: border-box;
+}
+.popu-content-left span{
+    text-align: center;
+    cursor: pointer;
+    width: 100px;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: all .4s;
+    font-size: 12pt;
+    margin-left: 40px;
+}
+.popu-content-left span:hover{
+    background: black;
+}
+.popu-content-right{
+    background-color: #f5f5f5;
+    width: 80%;
+    height: 100%;
+}
+.about-popu, .capacity-popu{
+    width: 200px;
+    padding: 7px 30px 20px 30px;
+    box-sizing: border-box;
+    height: 290px;
+    position: fixed;
+    z-index: 2;
+    margin-left: -65px;
+    background: transparent;
+    margin-top: -7px;
+    visibility: hidden;
+    transition: var(--popu-fadeIn);
+    opacity: 0;
+    scale: 0.8;
+}
+.capacity-popu{
+    height: 230px;
+    padding: 7px 30px 25px 30px;
+}
+.popu-active{
+    opacity: 1;
+    scale: 1;
+    visibility: unset;
+}
+.about-popu-container, .capacity-popu-container{
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+    color: black;
+    border-radius: 3px;
+    border: 1px solid lightgrey;
+    padding: 10px 10px 0 10px;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px 3px rgba(0,0,0,.15);
+}
+.about-popu-container>a:last-child .item, .capacity-popu-container>a:last-child .item{
+    border-bottom: none;
+}
+.item{
+    line-height: 1;
+    border-bottom: 1px solid #dbdbdb;
+    font-size: .85em;
+    color: #777777;
+    padding: 15px 10px 15px 10px;
+    cursor: pointer;
+}
+.item:hover{
+    color: #ff6a00;
+    background-color: #f1f1f1;
+}
+.emphasize{
+    text-decoration: underline;
+    text-underline-position: under;
+}
+#menu-img{
+    display: none;
+    cursor: pointer;
+}
+#logo{
+    cursor:pointer;
+    width:120px;
+    margin-left: 50px;
+}
+.production{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 20px;
+    align-content: space-evenly;
+    padding-right: 20px;
+}
+.production a{
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all .25s;
+    color: #575757;
+    font-size: 11pt;
+}
+.production a:hover{
+    background-color: #363636;
+    color: white;
+}
+#show_prod{
+    color:#ff6a00;
+}
+#prod{
+    display: flex;
+}
+#machine{
+    display: none;
+}
+@media only screen and (min-width: 959px) and (max-width: 1200px){
+    .navi-ul li{
+        padding: 0 20px !important;
+    }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1600px){
+    .navi-ul li{
+        padding: 0 30px !important;
+    }
+}
+@media only screen and (max-width: 959px){
+    #menu-img{
+        display: block;
+    }
+    .navigation{
+        height: 50px;
+    }
+    #menu-img{
+        width: 25px;
+        padding-top: 5px;
+        padding-right: 20px;
+    }
+    .navi-ul{
+        display: none;
+    }
+    .popu{
+        top: 50px;
+    }
+    #logo{
+        width: 63px;
+        position: absolute;
+        right: 5%;
+    }
+    .banner{
+        height: 50px;
+    }
+}

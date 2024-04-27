@@ -1,0 +1,88 @@
+body{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+}
+*{
+    user-select: none;
+}
+@font-face {
+    font-family: 'Alimm';
+    src: url('../fonts/AlimamaFangYuanTiVF-Thin-2.ttf');
+}
+.container{
+    width: 100%;
+    padding-top: 80px;
+    box-sizing: border-box;
+    transition: transform 1s cubic-bezier(0.1, 0.88, 0.46, 1);
+}
+.aspect{
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: relative;
+}
+.aspect img{
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+    top: 50%;
+    z-index: -1;
+}
+.aspect div{
+    font-size: 5em;
+    color: white;
+    position: absolute;
+    bottom: 100%;
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px #000;
+    font-family: 'alimm';
+    font-style: italic;
+    transition: all cubic-bezier(0, 0.68, 0.18, 1) 1s;
+}
+.downTip{
+    width: 50px;
+    left: 50%;
+    margin-left: -50px;
+    position: fixed;
+    z-index: 2;
+    bottom: 20px;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0 20px;
+}
+.downTip div{
+    border-right: 5px solid #ffffffd9;
+    border-bottom: 5px solid #ffffffd9;
+    margin-top: -10px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(45deg);
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.downTip div:nth-child(1){
+    animation: aa 2s ease-in-out 0s infinite;
+}
+.downTip div:nth-child(2){
+    animation: aa 2s ease-in-out 0.65s infinite;
+}
+.downTip div:nth-child(3){
+    animation: aa 2s ease-in-out 1.3s infinite;
+}
+@keyframes aa {
+    0%{
+        opacity: 0;
+    }
+    33%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}

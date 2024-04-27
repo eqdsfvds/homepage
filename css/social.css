@@ -1,0 +1,127 @@
+.bk{
+    text-align: center;
+    width: 100%;
+    height: 50vh;
+}
+.container{
+    padding-top: 20px;
+}
+.title{
+    text-align: center;
+}
+.title p{
+    color: #ffffff;
+    background: #4fa957;
+    letter-spacing: 1px;
+    padding: 15px 50px;
+    font-family: '幼圆';
+    width: fit-content;
+    border-radius: 10px;
+    margin-left: calc(50% - 130px);
+}
+H2{
+    font-size: 4em;
+    letter-spacing: 5px;
+    color: #2f9b60;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    text-shadow: 1px 1px #d7d7d7;
+}
+.slogan{
+    display: flex;
+    padding: 0 10%;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.slogan>div{
+    width: 360px;
+    height: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.slogan>div div{
+    background: #efefef;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 30px 10px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    position: relative;
+    transition: all .35s ease;
+    text-shadow: 1px 1px #c9c9c9;
+    box-shadow: 1px 1px 5px grey;
+}
+.slogan>div div img{
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    width: 300px;
+    height: 300px;
+    transition: all .35s ease;
+}
+.slogan>div div H4, .slogan>div div p{
+    font-family: '微软雅黑';
+}
+.slogan>div div H4{
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+.slogan>div div p{
+    text-indent: 2em;
+}
+.slogan-active-1{
+    background: #359b62 !important;
+    color: #fff;
+    text-shadow: 1px 1px #606060 !important;
+    box-shadow: 1px 1px 5px grey;
+}
+.slogan-active-2{
+    transform: translateY(-15px);
+}
+.intro{
+    padding: 0 10%;
+    width: 100%;
+    box-sizing: border-box;
+}
+.intro p{
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    background: #268b87;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 5px;
+    font-family: 'alimm';
+    box-shadow: 2px 2px 10px #999999;
+}
+.intro-images{
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.intro-images div{
+    width: 700px;
+    height: 500px;
+    margin: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.intro-images img{
+    width: 100%;
+    height: 100%;
+    transition: scale .3s ease;
+    overflow: hidden;
+}
+.intro-images img:hover{
+    scale: 1.1;
+}
