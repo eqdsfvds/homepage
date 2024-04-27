@@ -5,10 +5,10 @@ $(()=>{
         '板厚': ['0.075mm - 6.0mm, < 0.5mm for OSP 表面处理', '0.075mm - 6.5mm'],
         '内层铜厚': ['MAX: 6OZ', 'MAX: 8OZ'],
         '外层铜厚': ['MAX: 6OZ', 'MAX: 10OZ'],
-        '内层线宽/线隙(Min.)': ['1/3OZ 基铜: 50um,HOZ 基铜: 50um\n1OZ 基铜: 75um,2OZ 基铜: 100um\n3OZ 基铜: 125um,4OZ 基铜: 150um\n>4OZ 基铜: 175um',
-                               '1/3OZ 基铜: 38um,HOZ 基铜: 38um\n1OZ 基铜: 63um,2OZ 基铜: 88um\n3OZ 基铜: 114um,4OZ 基铜: 140um\n>4OZ 基铜: 165um'],
-        '外层线宽/线隙(Min.)': ['1/3OZ 基铜: 50um,HOZ 基铜: 75um\n1OZ 基铜: 100um,2OZ 基铜: 125um\n3OZ 基铜: 150um,4OZ 基铜: 175um\n>4OZ 基铜: 200um',
-                               '1/3OZ 基铜: 38um,HOZ 基铜: 50um\n1OZ 基铜: 75um,2OZ 基铜: 100um\n3OZ 基铜: 125um,4OZ 基铜: 150um\n>4OZ 基铜: 175um'],
+        '内层线宽/线隙(Min.)': ['1/3OZ 基铜: 50um,HOZ 基铜: 50um<br>1OZ 基铜: 75um,2OZ 基铜: 100um<br>3OZ 基铜: 125um,4OZ 基铜: 150um<br>>4OZ 基铜: 175um',
+                               '1/3OZ 基铜: 38um,HOZ 基铜: 38um<br>1OZ 基铜: 63um,2OZ 基铜: 88um<br>3OZ 基铜: 114um,4OZ 基铜: 140um<br>>4OZ 基铜: 165um'],
+        '外层线宽/线隙(Min.)': ['1/3OZ 基铜: 50um,HOZ 基铜: 75um<br>1OZ 基铜: 100um,2OZ 基铜: 125um<br>3OZ 基铜: 150um,4OZ 基铜: 175um<br>>4OZ 基铜: 200um',
+                               '1/3OZ 基铜: 38um,HOZ 基铜: 50um<br>1OZ 基铜: 75um,2OZ 基铜: 100um<br>3OZ 基铜: 125um,4OZ 基铜: 150um<br>>4OZ 基铜: 175um'],
         '层间对准度': ['±2mil', '±2mil'],
         '压板后板厚公差': ['±6%', '±5%'],
         '成品板厚公差': ['±10%', '±8%'],
@@ -47,6 +47,12 @@ $(()=>{
         '金属基板耐高压能力': ['1500 - 5000 VDC', '6000 VDC'],
         '金属基板热阻': ['2 - 6 W/m.K', '8 W/m.K']
     }
+    tbody = $('table tbody')
+    seq = 1
+    for(let pn in params){
+        tbody.append(`<tr id='${pn}'><th>${seq}</th><td>${pn}</td><td>${params[pn][0]}</td><td>${params[pn][1]}</td></tr>`)
+        seq += 1
+    }
     $('.search-ops div').mouseenter((e)=>{
         $(e.currentTarget).append(`<svg viewBox="0 0 1024 1024" width="23" height="23">
                 <path d="M970.496 543.829333l30.165333-30.165333-415.829333-415.914667a42.837333 42.837333 0 0 0-60.288 0 42.538667 42.538667 0 0 0 0 60.330667l355.413333 355.498667-355.413333 355.285333a42.496 42.496 0 0 0 0 60.288c16.64 16.64 43.861333 16.469333 60.288 0.042667l383.914667-383.701334 1.749333-1.664z" fill="#ffffff"></path>
@@ -63,10 +69,12 @@ $(()=>{
         e.stopPropagation()
     })
     $('.mask').click((e)=>{
+        ifMask = 0
         $('.mask').css('display', 'none')
         $('.mask-content').css({'transform':'translateY(-10vh)', 'opacity': '0'})
     })
-    $('.search div:nth-child(1)').click((e)=>{
+    $('.search>div').click((e)=>{
+        ifMask = 1
         $('.mask').css('display', 'flex')
         setTimeout(() => {
             $('.mask-content').css({'opacity': '1', 'transform': 'translateY(0)'})
@@ -92,4 +100,39 @@ $(()=>{
     })
     ee.observe(document.getElementsByClassName('p-title')[0])
     ee.observe(document.getElementsByClassName('poster-desc')[0])
+
+    wheelDirct = 1
+    ifMask = 0
+    window.onwheel = (e)=>{
+        if(ifMask == 1)
+            return
+        if($('.container')[0].getBoundingClientRect().y >= 0)
+        {
+            $('.toTop').css('display', 'none')
+            $('.navigation').css('transform', 'translateY(0');
+            return
+        }
+        else{
+            $('.toTop').css('display', 'block')
+        }
+        if(e.deltaY < 0 && wheelDirct == 1)
+        {
+            $('.navigation').css('transform', 'translateY(-100px');
+            wheelDirct = 0
+        }
+        else if(e.deltaY > 0 && wheelDirct == 0){
+            $('.navigation').css('transform', 'translateY(0');
+            wheelDirct = 1
+        }
+        else{
+            return
+        }
+    }
+    $('.toTop').click((e)=>{
+        scrollTo(0,0)
+        setTimeout(() => {
+            $('.toTop').css('display', 'none')
+            $('.navigation').css('transform', 'translateY(0');
+        }, 200);
+    })
 })
