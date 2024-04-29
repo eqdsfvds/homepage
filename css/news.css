@@ -35,14 +35,17 @@ a{
     background: #fff !important;
 }
 #news-c{
+    height: 100vh;
     position: relative;
+    padding-top: 80px;
+    box-sizing: border-box;
 }
 .news-ga{
     display: flex;
     overflow: unset;
     align-items: center;
     transition: all .5s cubic-bezier(0.19, 0.57, 0.59, 0.93);
-    height: 85vh;
+    height: 100%;
 }
 .news-ga-item{
     min-width: 100%;

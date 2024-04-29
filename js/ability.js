@@ -47,40 +47,22 @@ $(()=>{
         '金属基板耐高压能力': ['1500 - 5000 VDC', '6000 VDC'],
         '金属基板热阻': ['2 - 6 W/m.K', '8 W/m.K']
     }
-    tbody = $('table tbody')
+    tbody = $('table tbody'), searchContents = $('.search-ops')
     seq = 1
     for(let pn in params){
-        tbody.append(`<tr id='${pn}'><th>${seq}</th><td>${pn}</td><td>${params[pn][0]}</td><td>${params[pn][1]}</td></tr>`)
+        tbody.append(`<tr id='p_${seq}'><th>${seq}</th><td>${pn}</td><td>${params[pn][0]}</td><td>${params[pn][1]}</td></tr>`)
+        $('.search-ops').append(`<a href='#p_${seq}'>${pn}</a>`)
         seq += 1
     }
-    $('.search-ops div').mouseenter((e)=>{
+    $('.search-ops a').mouseenter((e)=>{
         $(e.currentTarget).append(`<svg viewBox="0 0 1024 1024" width="23" height="23">
                 <path d="M970.496 543.829333l30.165333-30.165333-415.829333-415.914667a42.837333 42.837333 0 0 0-60.288 0 42.538667 42.538667 0 0 0 0 60.330667l355.413333 355.498667-355.413333 355.285333a42.496 42.496 0 0 0 0 60.288c16.64 16.64 43.861333 16.469333 60.288 0.042667l383.914667-383.701334 1.749333-1.664z" fill="#ffffff"></path>
             </svg>`)
     })
-    $('.search-ops div').mouseleave((e)=>{
+    $('.search-ops a').mouseleave((e)=>{
         e.currentTarget.children[0] && e.currentTarget.children[0].remove()
     })
-    $('.close-btn').click((e)=>{
-        $('.mask').css('display', 'none')
-        $('.mask-content').css({'transform':'translateY(-10vh)', 'opacity': '0'})
-    })
-    $('.mask-content').click((e)=>{
-        e.stopPropagation()
-    })
-    $('.mask').click((e)=>{
-        ifMask = 0
-        $('.mask').css('display', 'none')
-        $('.mask-content').css({'transform':'translateY(-10vh)', 'opacity': '0'})
-    })
-    $('.search>div').click((e)=>{
-        ifMask = 1
-        $('.mask').css('display', 'flex')
-        setTimeout(() => {
-            $('.mask-content').css({'opacity': '1', 'transform': 'translateY(0)'})
-        }, 0);
-    })
-    $('.search-ops div').click((e)=>{
+    $('.search-ops a').click((e)=>{
         info = params[e.currentTarget.textContent.trim()]
         $('#pName').text(e.currentTarget.textContent.trim())
         $('#search-item').text(e.currentTarget.textContent.trim())
@@ -88,18 +70,34 @@ $(()=>{
         $('#pSam').text(info[1])
         $('.mask').css('display', 'none')
         $('.mask-content').css({'transform':'translateY(-10vh)', 'opacity': '0'})
+        $('.toTop').css('display', 'block')
+        $('.navigation').css('transform', 'translateY(-100px)');
+        ifMask = 0
     })
 
-    var ee = new IntersectionObserver((obj)=>{
-        obj.forEach((v, i)=>{
-            if(v.intersectionRatio > 0){
-                $(v.target).css({'transform': 'translateY(0)', 'opacity': '1'})
-                ee.unobserve(v.target)
-            }
-        })
+    $('.close-btn').click((e)=>{
+        $('.mask').css('display', 'none')
+        $('.mask-content').css({'transform':'translateY(-10vh)', 'opacity': '0'})
+        ifMask = 0
     })
-    ee.observe(document.getElementsByClassName('p-title')[0])
-    ee.observe(document.getElementsByClassName('poster-desc')[0])
+
+    $('.mask-content').click((e)=>{
+        e.stopPropagation()
+    })
+
+    $('.mask').click((e)=>{
+        ifMask = 0
+        $('.mask').css('display', 'none')
+        $('.mask-content').css({'transform':'translateY(-10vh)', 'opacity': '0'})
+    })
+
+    $('.search>div').click((e)=>{
+        ifMask = 1
+        $('.mask').css('display', 'flex')
+        setTimeout(() => {
+            $('.mask-content').css({'opacity': '1', 'transform': 'translateY(0)'})
+        }, 0);
+    })
 
     wheelDirct = 1
     ifMask = 0
@@ -109,7 +107,7 @@ $(()=>{
         if($('.container')[0].getBoundingClientRect().y >= 0)
         {
             $('.toTop').css('display', 'none')
-            $('.navigation').css('transform', 'translateY(0');
+            $('.navigation').css('transform', 'unset');
             return
         }
         else{
@@ -117,11 +115,11 @@ $(()=>{
         }
         if(e.deltaY < 0 && wheelDirct == 1)
         {
-            $('.navigation').css('transform', 'translateY(-100px');
+            $('.navigation').css('transform', 'translateY(-100px)');
             wheelDirct = 0
         }
         else if(e.deltaY > 0 && wheelDirct == 0){
-            $('.navigation').css('transform', 'translateY(0');
+            $('.navigation').css('transform', 'unset');
             wheelDirct = 1
         }
         else{
@@ -132,7 +130,7 @@ $(()=>{
         scrollTo(0,0)
         setTimeout(() => {
             $('.toTop').css('display', 'none')
-            $('.navigation').css('transform', 'translateY(0');
+            $('.navigation').css('transform', 'unset');
         }, 200);
     })
 })
