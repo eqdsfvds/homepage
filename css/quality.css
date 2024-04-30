@@ -100,7 +100,7 @@ p{
     transition: all .35s;
 }
 .intro p, .p1>div>p, .p2>div>p{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     transform: translateY(20px);
     opacity: 0;
 }
