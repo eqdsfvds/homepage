@@ -63,6 +63,9 @@
     position: relative;
     line-height: 0;
     display: flex;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: var(--fadeIn);
 }
 .popu1{
     width: 55%;
@@ -217,6 +220,9 @@
 }
 .cate-container{
     display: flex;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: var(--fadeIn);
 }
 .images{
     width: 60%;

@@ -74,20 +74,17 @@ $(()=>{
 
     a = new IntersectionObserver((obj)=>{
         obj.forEach((v, i)=>{
-            switch(v.target.classList[0]){
-                case '':
-                    break
-                default:
-                    if(v.intersectionRatio > 0){
-                        $(v.target).css({'transform': 'translateY(0vw)', 'opacity': '1'})
-                        a.unobserve(v.target)
-                    }
+            if(v.intersectionRatio > 0){
+                $(v.target).css({'transform': 'translateY(0vw)', 'opacity': '1'})
+                a.unobserve(v.target)
             }
         })
     })
-    
-    a.observe($('.title')[0])
-    a.observe($('.title')[1])
-    a.observe($('.title')[2])
-    a.observe($('.title')[3])
-    a.observe($('.title')[4])
+
+    $('.cate-container').map((i, o)=>{
+        a.observe(o)
+    })
+    $('.title').map((i, o)=>{
+        a.observe(o)
+    })
+    a.observe(document.getElementsByClassName('pre4-container')[0])

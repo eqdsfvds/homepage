@@ -1,6 +1,6 @@
 :root{
     --popu-fadeIn: all .15s cubic-bezier(0.215, 0.61, 0.355, 1);
-    --fadeIn: all 2.15s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
+    --fadeIn: all 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
     --fadeIn-delay: all 2.15s cubic-bezier(0.215, 0.61, 0.355, 1) .7s;
     --fadeIn-instant: all 1.15s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
     --imgScale: img_s 5s linear infinite alternate;
@@ -27,7 +27,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 .navi-ul-active{
-    background: #388ec1;
+    background: #003685;
     color: white !important;
     font-weight: 500;
 }
@@ -60,14 +60,15 @@ body{
     top: 0;
     z-index: 10;
     background: transparent;
-    transition: all .05s;
+    transition: all .5s;
     box-sizing: border-box;
     color: rgb(243, 243, 243);
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 .navigation-show{
-    color: #fff;
-    background: rgb(70 118 169 / 97%);
+    color: #414141;
+    background: #fff;
+    border-bottom: 1px solid #e7e7e7;
 }
 .navigation-black{
     animation: navigation-black .5s forwards ease;
@@ -100,12 +101,12 @@ body{
     text-align: center;
     font-size: 13pt;
     line-height: 5;
-    padding: 0 60px;
+    padding: 0 40px;
     transition: all .05s;
     cursor: pointer;
 }
 .navi-ul li:hover{
-    background-color: #da8181;
+    background-color: #003685;
     color: white;
 }
 .navi-ul a{
@@ -217,6 +218,7 @@ body{
 .emphasize{
     text-decoration: underline;
     text-underline-position: under;
+    text-underline-offset: 3px;
 }
 #menu-img{
     display: none;
@@ -226,6 +228,10 @@ body{
     cursor:pointer;
     width:120px;
     margin-left: 50px;
+}
+#logo img{
+    cursor: pointer;
+    width: 120px;
 }
 .production{
     display: flex;

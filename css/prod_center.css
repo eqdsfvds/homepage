@@ -239,11 +239,11 @@
     padding: 15px 30px;
     font-size: 17pt;
     width: fit-content;
-    margin-top: -30px;
-    background: #1b4fad;
+    border: 1px solid #fff;
+    margin-top: -90px;
     position: absolute;
-    right: 20px;
-    box-shadow: 1px 1px 4px 0px black;
+    right: 100px;
+    box-shadow: 0 0 4px 1px #fff;
 }
 .table-cell-time{
     z-index: -1;
