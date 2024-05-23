@@ -3,13 +3,24 @@
     height: calc(100vh - 120px);
     margin-top: 120px;
 }
-.container img{
+#a{
     width: 100%;
-    margin-top: -300px;
+    height: 80%;
 }
-.container div{
+#s1{
     width: 100%;
     text-align: center;
     font-size: 2em;
-    margin-top: 50px;
+    margin-top: 20px;
+    color: #001b7f;
+    padding-left: 9px;
+    letter-spacing: 3px;
+}
+#s2{
+    width: 100%;
+    text-align: center;
+    font-size: 1.9em;
+    margin-top: 10px;
+    color: #ef9242;
+    font-style: italic;
 }

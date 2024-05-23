@@ -45,7 +45,7 @@ $(()=>{
         document.body.scrollTop = 0
     }
 
-    $('.p2-prod').css('height', $('.p2-prod')[0].clientWidth * 0.5 + 'px')
+    $('.p2-prod').css('height', $('.p2-prod')[0].clientWidth * 0.4 + 'px')
 
     $('.p3-dev img').css('height', $('.p3-dev img')[0].clientWidth * 0.7 + 'px')
 
