@@ -23,11 +23,30 @@ $(()=>{
         }
     })
 
+    mousemove_dirct = 0
+    scroll_pos = 100
+    interval_scroll = setInterval(() => {
+        scroll_pos = (scroll_pos - 100)%500
+        setTimeout(() => {
+            $('.p2-prod').css({'transform': `translateX(${scroll_pos}%)`, 'transition': 'all 1s'})
+        }, 0);
+    }, 3000);
+
+    $('.p2-prod')[0].addEventListener('transitionend', (e)=>{
+        if(scroll_pos == -400){
+            $('.p2-prod').css('transition', 'all 0s')
+            $('.p2-prod').css('transform', 'translateX(0%)')
+            scroll_pos = 0
+        }
+    })
+
     window.onbeforeunload = ()=>{
         document.documentElement.scrollTop = 0
         document.body.scrollTop = 0
     }
+
     $('.p2-prod').css('height', $('.p2-prod')[0].clientWidth * 0.5 + 'px')
+
     $('.p3-dev img').css('height', $('.p3-dev img')[0].clientWidth * 0.7 + 'px')
 
     $('.p2-pic-mask').hover((e)=>{
@@ -48,7 +67,7 @@ $(()=>{
         $(e.currentTarget.children[0]).css({'opacity': '0', 'transform': 'translateY(-1vw)'})
         e.currentTarget.children[1].style.scale = 1
     })
-    $('body').on('click', '.p4-nav span:not(.p4-nav-active)', (e)=>{
+    $('body').on('click', '.p4-nav a:not(.p4-nav-active)', (e)=>{
         $('.p4-nav-active').removeClass('p4-nav-active')
         $('.cell-expand').removeClass('cell-expand')
         $(e.target).addClass('p4-nav-active')
@@ -76,5 +95,4 @@ $(()=>{
         a.observe(o)
     })
     a.observe($('.p5-content')[0])
-    foo(0)
 })
