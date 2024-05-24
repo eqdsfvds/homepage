@@ -268,11 +268,15 @@ body{
 @media only screen and (min-width: 959px) and (max-width: 1200px){
     .navi-ul li{
         padding: 0 20px !important;
+        font-size: 8pt !important;
+        line-height: 12 !important;
     }
 }
-@media only screen and (min-width: 1200px) and (max-width: 1600px){
+@media only screen and (min-width: 1200px) and (max-width: 1800px){
     .navi-ul li{
         padding: 0 30px !important;
+        font-size: 10pt !important;
+        line-height: 9 !important;
     }
 }
 @media only screen and (max-width: 959px){
