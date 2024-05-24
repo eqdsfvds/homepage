@@ -3,21 +3,21 @@ var bodyParse           = require('body-parser');
 const sqlite3			= require('sqlite3').verbose();
 // const mainRouter = require('./js/router');
 const mainRouter = require('./js/temp_router');
-// const { default: rateLimit } = require('express-rate-limit');
-import * as rateLimit from 'express-rate-limit'
+//const { default: rateLimit } = require('express-rate-limit');
+// import * as rateLimit from 'express-rate-limit'
 var app                 = express()
 
-const limiter = rateLimit({
-    windowMs: 1000,
-    max: 2
-})
+// const limiter = rateLimit({
+//     windowMs: 1000,
+//     max: 2
+// })
 
-const global_limiter = rateLimit({
-    windowMs: 30*60*1000,
-    max: 21000
-})
+// const global_limiter = rateLimit({
+//     windowMs: 30*60*1000,
+//     max: 21000
+// })
 
-app.use(global_limiter)
+// app.use(global_limiter)
 
 // token有效时间
 app.use(bodyParse.json({limit: '10mb'}))
