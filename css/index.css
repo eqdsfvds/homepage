@@ -176,7 +176,8 @@
     width: 650px;
     height: 200px;
 }
-.discover div{
+.discover a{
+    display: block;
     margin-top: 3em;
     padding: 1em 2em;
     letter-spacing: 3px;
@@ -185,8 +186,9 @@
     font-size: 1.4em;
     background-color: #002851;
     cursor: pointer;
+    text-decoration: none;
 }
-.discover div:hover{
+.discover a:hover{
     background-color: transparent;
     border: 1px solid #fff;
 }
@@ -316,7 +318,7 @@
 }
 .p2-prod-grids > img{
     cursor: grab;
-    height: 80%;
+    height: 90%;
     width: 80%;
     user-select: none;
 }
@@ -399,6 +401,22 @@
 }
 .sers{
     background-color: #779aff9c;
+}
+.c-intro{
+    width: 100%;
+    padding: 75px 30%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    line-height: 3;
+    color: white;
+    background: #0f1f5b;
+    text-indent: 2em;
+    margin-top: 100px;
+}
+.c-intro img{
+    width: 25px;
+    vertical-align: sub;
+    cursor: pointer;
 }
 .p2-prod-desc img{
     position: absolute;
@@ -573,11 +591,11 @@
     transition: all .1s linear;
     font-weight: bold;
     letter-spacing: 3px;
+    text-decoration: none;
 }
 .p3-details:hover{
     background-position: left bottom;
 }
-
 .p4{
     width: 100vw;
     padding: 80px 0;
