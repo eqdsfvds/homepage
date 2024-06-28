@@ -1,7 +1,18 @@
+.banner{
+    height: 120px !important;
+}
+.navigation{
+    height: 120px !important;
+}
 .container{
     width: 100vw;
     height: calc(100vh - 120px);
     margin-top: 120px;
+    position: relative;
+}
+#c{
+    display: flex;
+    justify-content: center;
 }
 #a{
     width: 100%;
@@ -21,10 +32,61 @@
     text-align: center;
     font-size: 1.9em;
     margin-top: 10px;
-    color: #ef9242;
+    color: #001b7f;
     font-style: italic;
+    overflow: visible;
 }
 #footer{
-    margin-top: -50px;
+    margin-top: 20px;
     text-align: center;
+}
+#contact{
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: 50px;
+    margin-top: 50px;
+}
+.attrName{
+    font-style: italic;
+    color: #222;
+    margin-right: 10px;
+}
+.attrContent{
+    float: right;
+    color: #222;
+    font-weight: 600;
+}
+@media screen and (max-width: 1500px) and (min-width: 900px){
+    #c{
+        display: flex;
+        justify-content: left;
+    }
+}
+@media screen and (max-width: 899px) and (min-width: 100px){
+    #c{
+        display: flex;
+        justify-content: center;
+    }
+    #contact{
+        margin-top: -150px;
+    }
+    .attrName{
+        color: #fff;
+    }
+    .attrContent{
+        color: #fff;
+    }
+    .container{
+        height: calc(100vh - 0px);
+        margin-top: 60px;
+    }
+    .banner{
+        height: 60px !important;
+    }
+    .navigation{
+        height: 60px !important;
+    }
 }
