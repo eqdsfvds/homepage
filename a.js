@@ -15,7 +15,7 @@ var app                 = express()
 //     max: 21000
 // })
 
-app.use(global_limiter)
+// app.use(global_limiter)
 
 // token有效时间
 app.use(bodyParse.json({limit: '10mb'}))
