@@ -1,5 +1,5 @@
 $(()=>{
-    $.post('getNewsMain', (data, status)=>{
+    $.get('getNewsMain', (data, status)=>{
         news = data.news
         ii = 4
         news.forEach((v, i)=>{

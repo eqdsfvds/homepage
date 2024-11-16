@@ -307,7 +307,7 @@ a{
     overflow-y: auto;
 }
 .files-area::-webkit-scrollbar{
-    width: 20px;
+    width: 10px;
 }
 .files-area::-webkit-scrollbar-track{
     width: 20px;

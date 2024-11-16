@@ -147,10 +147,11 @@
 }
 .g-body{
     width: 100%;
-    font-size: 15pt;
+    font-size: 12pt;
     background: #3a299b7d;
     box-sizing: border-box;
     padding: 10px 50px;
+    color: #ededed;
 }
 .time-grid::before{
     content: "";

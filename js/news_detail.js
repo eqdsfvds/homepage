@@ -1,5 +1,5 @@
 $(()=>{
-    $.post('/getNews', {id: window.location.search.split('=')[1]}, (data, status)=>{
+    $.get('/getNews', {id: window.location.search.split('=')[1]}, (data, status)=>{
         if(data.refer == 1){
             $('refer')[0].innerHTML = '来源：'
         }
@@ -11,7 +11,7 @@ $(()=>{
         $('.title2').after(data.contents)
     })
 
-    $.post('getNewsTrending', (data, status)=>{
+    $.get('getNewsTrending', (data, status)=>{
         news = data.trending
         container = $('.container>div:nth-child(2)')
         console.log(container)

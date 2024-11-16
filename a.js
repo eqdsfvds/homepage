@@ -21,6 +21,36 @@ app.use(global_limiter)
 app.use(bodyParse.json({limit: '10mb'}))
 app.use(bodyParse.urlencoded({limit: '10mb', extended:true}))
 
+app.get('/getNews', (req, res)=>{
+    var id = req.query.id
+    if(newsCache[id]==null){
+        db.get('select ifrefer,title,contents,author,datetime,read_num from news where id=?', [id], (err, row)=>{
+            if(row == null){
+                res.json({status: false})
+            }
+            else{
+                newsCache[id] = row
+                res.json({status: true, refer: row.ifrefer, title: row.title, contents: row.contents, author: row.author, datetime: row.datetime, read_num:row.read_num})
+            }
+        })
+    }
+    else{
+        news = newsCache[id]
+        res.json({status: true, refer: news.ifrefer, title: news.title, contents: news.contents, author: news.author, datetime: news.datetime, read_num:news.read_num})
+    }
+})
+
+app.get('/getNewsMain', (req, res)=>{
+    db.all('select title, abstract, cover, detailId, position from newsMain', (err, rows)=>{
+        res.json({news: rows})
+    })
+})
+
+app.get('/getNewsTrending', (req, res)=>{
+    res.json({trending: trendingNews})
+})
+
+
 app.use('/', mainRouter)
 
 var db = new sqlite3.Database(
@@ -41,36 +71,7 @@ db.all('select newsMain.title, newsMain.detailId, newsMain.cover, news.author, n
     }
 })
 
-app.post('/getNews', limiter, (req, res)=>{
-    var id = req.body.id
-    if(newsCache[id]==null){
-        db.get('select ifrefer,title,contents,author,datetime,read_num from news where id=?', [id], (err, row)=>{
-            if(row == null){
-                res.json({status: false})
-            }
-            else{
-                newsCache[id] = row
-                res.json({status: true, refer: row.ifrefer, title: row.title, contents: row.contents, author: row.author, datetime: row.datetime, read_num:row.read_num})
-            }
-        })
-    }
-    else{
-        news = newsCache[id]
-        res.json({status: true, refer: news.ifrefer, title: news.title, contents: news.contents, author: news.author, datetime: news.datetime, read_num:news.read_num})
-    }
-})
-
-app.post('/getNewsMain', (req, res)=>{
-    db.all('select title, abstract, cover, detailId, position from newsMain', (err, rows)=>{
-        res.json({news: rows})
-    })
-})
-
-app.post('/getNewsTrending', (req, res)=>{
-    res.json({trending: trendingNews})
-})
-
 // 启动服务器
-var server = app.listen(80, ()=>{
+var server = app.listen(8080, ()=>{
 	console.log('server is running...')
 })

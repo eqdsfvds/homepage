@@ -78,3 +78,21 @@ a svg:hover{
     color: #555;
     margin-left: 30px;
 }
+@media screen and (max-width: 959px){
+    .comp-ul{
+        font-size: 9pt !important;
+    }
+    .comp-ul li{
+        font-size: 7pt !important;
+    }
+    .components{
+        padding: 50px 10px !important;
+    }
+    .customers-container img{
+        max-width: 20px !important;
+    }
+    #footer{
+        font-size: 8pt !important;
+        line-height: 4.5 !important;
+    }
+}

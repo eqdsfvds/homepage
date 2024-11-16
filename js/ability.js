@@ -1,4 +1,33 @@
 $(()=>{
+    $('#input-prj').keyup(e=>{
+        key = $('#input-prj').val()
+        if(key == ''){
+            for(var i in $('.search-ops').children()){
+                $('.search-ops').children()[i].style.display = 'block'
+                if(i == $('.search-ops').children().length -1)
+                    break
+            }
+        }
+        else{
+            key = key.toUpperCase()
+            for(var i in $('.search-ops').children()){
+                pn = $('.search-ops').children()[i].textContent
+                if(pn.toUpperCase().indexOf(key) == -1){
+                    $('.search-ops').children()[i].style.display = 'none'
+                }
+                else{
+                    $('.search-ops').children()[i].style.display = 'block'
+                }
+                for(var x in params[pn]){
+                    if(params[pn][x].toUpperCase().indexOf(key) != -1)
+                        $('.search-ops').children()[i].style.display = 'block'
+                }
+                if(i == $('.search-ops').children().length -1)
+                    break
+            }
+        }
+    })
+
     params = {
         'PCB层数': ['1-20层', '24层'],
         '产品大小': ['MAX: 724mm X 623mm\nMIN: 76mm X 51mm', 'MAX:762mm X 660mm\nMIN: 63.5mm X 38mm'],
@@ -47,7 +76,7 @@ $(()=>{
         '金属基板耐高压能力': ['1500 - 5000 VDC', '6000 VDC'],
         '金属基板热阻': ['2 - 6 W/m.K', '8 W/m.K']
     }
-    tbody = $('table tbody'), searchContents = $('.search-ops')
+    tbody = $('table tbody')
     seq = 1
     for(let pn in params){
         tbody.append(`<tr id='p_${seq}'><th>${seq}</th><td>${pn}</td><td>${params[pn][0]}</td><td>${params[pn][1]}</td></tr>`)
@@ -106,12 +135,12 @@ $(()=>{
             return
         if($('.container')[0].getBoundingClientRect().y >= 0)
         {
-            $('.toTop').css('display', 'none')
+            $('.toTop').css({'opacity': 0, 'transform': 'translateY(-500px)'})
             $('.navigation').css('transform', 'unset');
             return
         }
         else{
-            $('.toTop').css('display', 'block')
+            $('.toTop').css({'opacity': 1, 'transform': 'translateY(0px)'})
         }
         if(e.deltaY < 0 && wheelDirct == 1)
         {
@@ -129,7 +158,7 @@ $(()=>{
     $('.toTop').click((e)=>{
         scrollTo(0,0)
         setTimeout(() => {
-            $('.toTop').css('display', 'none')
+            $('.toTop').css({'opacity': 0, 'transform': 'translateY(-500px)'})
             $('.navigation').css('transform', 'unset');
         }, 200);
     })

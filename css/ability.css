@@ -45,7 +45,7 @@
 }
 .poster-desc{
     margin-left: 8%;
-    margin-top: 150px;
+    margin-top: 100px;
     padding: 0 100px 20px 30px;
     overflow: unset;
     opacity: 0;
@@ -225,7 +225,7 @@ tbody tr:nth-child(2n){
     display: flex;
     justify-content: start;
     align-items: center;    
-    padding-left: 15%;
+    padding-left: 10%;
     box-sizing: border-box;
     font-size: 2em;
     overflow: visible;
@@ -307,12 +307,15 @@ tbody tr:nth-child(2n){
     width: 50px;
     height: 50px;
     background-color: #cfcfcf;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 50%;
+    padding-top: 13px;
     box-sizing: border-box;
     cursor: pointer;
-    display: none;
     z-index: 2;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-500px);
+    transition: all .5s ease;
 }
 .toTop svg{
     transition: scale .1s;

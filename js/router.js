@@ -180,7 +180,7 @@ router.get('/productCate', (req, res)=>{
 
 // 404页
 router.get('/*', (req, res)=>{
-    res.sendFile('404.html', {root: root})
+    res.redirect('/')
 })
 
 module.exports = router

@@ -2,23 +2,29 @@ $(()=>{
 
 
     $('#about')[0].addEventListener('mouseover', (e)=>{
+        $(e.currentTarget).find('svg')[0].children[0].style.fill = '#fff'
         $('.about-popu').addClass('popu-active')
     })
     $('#about')[0].addEventListener('mouseleave', (e)=>{
+        $(e.currentTarget).find('svg')[0].children[0].style.fill = '#2c2c2c'
         $('.popu-active').removeClass('popu-active')
     })
     $('#capacity')[0].addEventListener('mouseover', (e)=>{
+        $(e.currentTarget).find('svg')[0].children[0].style.fill = '#fff'
         $('.capacity-popu').addClass('popu-active')
     })
     $('#capacity')[0].addEventListener('mouseleave', (e)=>{
+        $(e.currentTarget).find('svg')[0].children[0].style.fill = '#2c2c2c'
         $('.popu-active').removeClass('popu-active')
     })
 
     $('#prod_center')[0].addEventListener('mouseover', (e)=>{
-        if(e.target.id != 'prod_center') return
-        $('.popu').css({'height': '200px'})
+        $(e.currentTarget).find('svg')[0].children[0].style.fill = '#fff'
+        if(e.currentTarget.id != 'prod_center') return
+        $('.popu').css({'height': '300px'})
     })
     $('#prod_center')[0].addEventListener('mouseleave', (e)=>{
+        $(e.currentTarget).find('svg')[0].children[0].style.fill = '#2c2c2c'
         $('.popu').css({'height': '0'})
     })
     $('#show_prod').mouseover((e)=>{
@@ -34,3 +40,4 @@ $(()=>{
         $('#machine').css('display', 'flex')
     })
 })
+

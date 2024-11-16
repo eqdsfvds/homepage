@@ -20,8 +20,8 @@ var app                 = express()
 // app.use(global_limiter)
 
 // token有效时间
-app.use(bodyParse.json({limit: '10mb'}))
-app.use(bodyParse.urlencoded({limit: '10mb', extended:true}))
+// app.use(bodyParse.json({limit: '10mb'}))
+// app.use(bodyParse.urlencoded({limit: '10mb', extended:true}))
 
 app.use('/', mainRouter)
 

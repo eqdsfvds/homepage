@@ -31,6 +31,9 @@
     color: white !important;
     font-weight: 500;
 }
+.navi-ul-active path{
+    fill: #fff !important;
+}
 html{
     overflow-y: auto;
     overflow-x: hidden;
@@ -50,6 +53,7 @@ body{
     width: 100vw;
     z-index: 10;
     transition: all .25s;
+    font-family: 'alimm';
 }
 .navigation{
     overflow: hidden;
@@ -98,12 +102,14 @@ body{
     padding-left: 5%;
 }
 .navi-ul li{
+    position: relative;
     text-align: center;
     font-size: 13pt;
     line-height: 5;
-    padding: 0 40px;
+    padding: 0 30px;
     transition: all .05s;
     cursor: pointer;
+    font-weight: 500;
 }
 .navi-ul li:hover{
     background-color: #003685;
@@ -132,7 +138,7 @@ body{
 }
 .popu-content{
     width: 100%;
-    height: 200px;
+    height: 150px;
     background-color: #fff;
     display: flex;
 }
@@ -147,7 +153,7 @@ body{
     padding-left: 100px;
     box-sizing: border-box;
 }
-.popu-content-left span{
+#show_prod{
     text-align: center;
     cursor: pointer;
     width: 100px;
@@ -156,8 +162,9 @@ body{
     transition: all .4s;
     font-size: 12pt;
     margin-left: 40px;
+    color:#ff6a00;
 }
-.popu-content-left span:hover{
+#show_prod:hover{
     background: black;
 }
 .popu-content-right{
@@ -167,22 +174,17 @@ body{
 }
 .about-popu, .capacity-popu{
     width: 200px;
-    padding: 7px 30px 20px 30px;
+    padding: 17px 30px 25px 30px;
     box-sizing: border-box;
-    height: 290px;
     position: fixed;
     z-index: 2;
-    margin-left: -65px;
+    margin-left: -53px;
     background: transparent;
-    margin-top: -7px;
+    margin-top: -17px;
     visibility: hidden;
     transition: var(--popu-fadeIn);
     opacity: 0;
     scale: 0.8;
-}
-.capacity-popu{
-    height: 230px;
-    padding: 7px 30px 25px 30px;
 }
 .popu-active{
     opacity: 1;
@@ -196,7 +198,7 @@ body{
     color: black;
     border-radius: 3px;
     border: 1px solid lightgrey;
-    padding: 10px 10px 0 10px;
+    padding: 10px 10px 10px 10px;
     box-sizing: border-box;
     box-shadow: 0 0 15px 3px rgba(0,0,0,.15);
 }
@@ -215,10 +217,12 @@ body{
     color: #ff6a00;
     background-color: #f1f1f1;
 }
-.emphasize{
-    text-decoration: underline;
-    text-underline-position: under;
-    text-underline-offset: 3px;
+.emphasize span{
+    vertical-align: sub;
+    cursor: pointer;
+}
+.emphasize span svg, .emphasize span svg path{
+    cursor: pointer;
 }
 #menu-img{
     display: none;
@@ -256,35 +260,38 @@ body{
     background-color: #363636;
     color: white;
 }
-#show_prod{
-    color:#ff6a00;
-}
 #prod{
     display: flex;
 }
 #machine{
     display: none;
 }
-@media only screen and (min-width: 959px) and (max-width: 1200px){
-    .navi-ul li{
-        padding: 0 20px !important;
-        font-size: 8pt !important;
-        line-height: 12 !important;
-    }
-}
-@media only screen and (min-width: 1200px) and (max-width: 1800px){
+@media screen and (max-width: 1800px){
     .navi-ul li{
         padding: 0 30px !important;
-        font-size: 10pt !important;
-        line-height: 9 !important;
+        font-size: 12pt !important;
+        line-height: 5.3 !important;
     }
 }
-@media only screen and (max-width: 959px){
+@media screen and (max-width: 1200px){
+    .navi-ul li{
+        padding: 0 20px !important;
+        font-size: 10pt !important;
+        line-height: 6.5 !important;
+    }
+    .about-popu-container, .capacity-popu-container{
+        width: 100px;
+    }
+}
+@media screen and (max-width: 959px){
     #menu-img{
         display: block;
     }
     .navigation{
         height: 50px;
+        justify-content: space-between;
+        padding-left: 50px;
+        overflow: visible;
     }
     #menu-img{
         width: 25px;
@@ -292,7 +299,15 @@ body{
         padding-right: 20px;
     }
     .navi-ul{
-        display: none;
+        opacity: 0;
+        background: #ffffffbd;
+        top: 50px;
+        height: 100vh;
+        transform: translateX(-150px);
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        transition: all .35s ease;
     }
     .popu{
         top: 50px;

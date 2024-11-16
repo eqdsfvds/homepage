@@ -1,5 +1,6 @@
 .navigation{
-    background: rgb(70 118 169 / 97%) !important;
+    background: #fff !important;
+    color: #000 !important;
 }
 img{
     user-select: none;
@@ -7,11 +8,10 @@ img{
 .title{
     letter-spacing: 5px;
     font-weight: 600;
-    padding: 60px 27%;
+    padding: 50px 10%;
     background: url(../images/sales/banner.jpg);
     transition: all .5s ease;
     box-sizing: border-box;
-    height: 200px;
 }
 .title:hover{
     background-position-y: -30px;
