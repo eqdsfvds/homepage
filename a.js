@@ -2,18 +2,18 @@ const express = require('express');
 var bodyParse           = require('body-parser');
 const sqlite3			= require('sqlite3').verbose();
 const mainRouter = require('./js/router');
-const { default: rateLimit } = require('express-rate-limit');
+// const { default: rateLimit } = require('express-rate-limit');
 var app                 = express()
 
-const limiter = rateLimit({
-    windowMs: 1000,
-    max: 2
-})
+// const limiter = rateLimit({
+//     windowMs: 1000,
+//     max: 2
+// })
 
-const global_limiter = rateLimit({
-    windowMs: 30*60*1000,
-    max: 21000
-})
+// const global_limiter = rateLimit({
+//     windowMs: 30*60*1000,
+//     max: 21000
+// })
 
 app.use(global_limiter)
 

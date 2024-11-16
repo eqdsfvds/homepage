@@ -63,13 +63,21 @@ $(()=>{
             }
         })
     })
+    
+    var b = new IntersectionObserver((obj)=>{
+        if(obj[0].intersectionRatio > 0){
+            $(obj[0].target).css({'transform': 'translateY(0)', 'opacity': '1'})
+            b.unobserve(obj[0].target)
+        }
+    })
+
     $('.title').map((i, o)=>{
         a.observe(o)
     })
     $('.title p').map((i, o)=>{
         a.observe(o)
     })
-    a.observe($('#p2-prod')[0])
+    b.observe($('#p2-prod')[0])
     a.observe($('.p3-container')[0])
     a.observe($('.p4-nav')[0])
     $('.p4-part1-cell').map((i, o)=>{
